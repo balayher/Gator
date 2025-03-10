@@ -56,17 +56,6 @@ func handlerRegister(s *state, cmd command) error {
 	return nil
 }
 
-func handlerReset(s *state, cmd command) error {
-
-	err := s.db.ResetDB((context.Background()))
-	if err != nil {
-		return fmt.Errorf("database could not be reset: %w", err)
-	}
-
-	fmt.Println("Database reset successfully!")
-	return nil
-}
-
 func handlerListUsers(s *state, cmd command) error {
 
 	users, err := s.db.GetUsers(context.Background())
